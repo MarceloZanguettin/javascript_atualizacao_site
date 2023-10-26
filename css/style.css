@@ -231,10 +231,28 @@ body {
 
 .js-tabcontent section.ativo {
   display: block !important;
-  animation: show 1.5s forwards;
 }
 
-@keyframes show {
+.js-tabcontent section.ativo.show-left {
+  animation: show-left 1.5s forwards;
+}
+
+.js-tabcontent section.ativo.show-right {
+  animation: show-right 1.5s forwards;
+}
+
+@keyframes show-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-right {
   from {
     opacity: 0;
     transform: translate3d(30px, 0, 0);

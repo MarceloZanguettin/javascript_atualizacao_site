@@ -9,7 +9,8 @@ function initTabNav() {
       tabContent.forEach((section) => {
         section.classList.remove("ativo"); // retira de todos os section a classe ativo, criado uma função dentro de outra função
       });
-      tabContent[index].classList.add("ativo");
+      const direcao = tabContent[index].dataset.anime;
+      tabContent[index].classList.add("ativo", direcao);
     }
 
     tabMenu.forEach((itemMenu, index) => {
