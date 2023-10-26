@@ -225,19 +225,19 @@ body {
   }
 }
 
-.js .js-tabcontent section {
+.js [data-tab="content"] section {
   display: none;
 }
 
-.js-tabcontent section.ativo {
+[data-tab="content"] section.ativo {
   display: block !important;
 }
 
-.js-tabcontent section.ativo.show-left {
+[data-tab="content"] section.ativo.show-left {
   animation: show-left 1.5s forwards;
 }
 
-.js-tabcontent section.ativo.show-right {
+[data-tab="content"] section.ativo.show-right {
   animation: show-right 1.5s forwards;
 }
 
@@ -292,13 +292,13 @@ body {
   }
 }
 
-.js .js-scroll {
+.js [data-anime="scroll"] {
   opacity: 0;
   transform: translate3d(-50px, 0, 0);
   transition: 1.5s;
 }
 
-.js .js-scroll.ativo {
+.js [data-anime="scroll"].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }

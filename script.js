@@ -1,6 +1,6 @@
 function initTabNav() {
-  const tabMenu = document.querySelectorAll(".js-tabmenu li"); // fazendo com que selecione cada li de dentro do js-tabmenu
-  const tabContent = document.querySelectorAll(".js-tabcontent section"); // fazendo com que selecione cada section
+  const tabMenu = document.querySelectorAll("[data-tab='menu']  li"); // fazendo com que selecione cada li de dentro do js-tabmenu
+  const tabContent = document.querySelectorAll("[data-tab='content'] section"); // fazendo com que selecione cada section
 
   if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add("ativo");
@@ -73,7 +73,7 @@ function initScrollSuave() {
 initScrollSuave();
 
 function initAnimacaoScroll() {
-  const section = document.querySelectorAll(".js-scroll");
+  const section = document.querySelectorAll("[data-anime='scroll']");
 
   if (section.length) {
     const windowMetade = window.innerHeight * 0.6;
