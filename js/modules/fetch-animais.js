@@ -14,7 +14,6 @@ export default function initFetchAnimais() {
   }
 
   function createAnimal(animal) {
-    console.log(animal);
     const div = document.createElement("div");
     div.classList.add("numero-animal");
     div.innerHTML = `<h3>${animal.specie}</h3><span data-numero>${animal.total}</span>`;
