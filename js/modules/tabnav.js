@@ -1,20 +1,32 @@
-export default function initTabNav() {
-  const tabMenu = document.querySelectorAll("[data-tab='menu']  li"); // fazendo com que selecione cada li de dentro do js-tabmenu
-  const tabContent = document.querySelectorAll("[data-tab='content'] section"); // fazendo com que selecione cada section
-  function activeTab(index) {
-    tabContent.forEach((section) => {
-      section.classList.remove("ativo"); // retira de todos os section a classe ativo, criado uma função dentro de outra função
-    });
-    const direcao = tabContent[index].dataset.anime;
-    tabContent[index].classList.add("ativo", direcao);
+export default class TabNav {
+  constructor(menu, content) {
+    this.tabMenu = document.querySelectorAll(menu); // fazendo com que selecione cada li de dentro do js-tabmenu
+    this.tabContent = document.querySelectorAll(content); // fazendo com que selecione cada section
+    this.activeClass = "ativo";
   }
-  if (tabMenu.length && tabContent.length) {
-    tabContent[0].classList.add("ativo");
-    tabMenu.forEach((itemMenu, index) => {
-      // função que irá ler ao ler o click na imagem irá acionar a função activeTab() na section do js-content
-      itemMenu.addEventListener("click", () => {
-        activeTab(index);
-      });
+
+  // Ativa a tab de acordo com o index da mesma
+  activeTab(index) {
+    this.tabContent.forEach((section) => {
+      section.classList.remove(this.activeClass); // retira de todos os section a classe ativo, criado uma função dentro de outra função
     });
+    const direcao = this.tabContent[index].dataset.anime;
+    this.tabContent[index].classList.add(this.activeClass, direcao);
+  }
+
+  // Adiciona os eventos nas tabs
+  addTabNavEvent() {
+    this.tabMenu.forEach((itemMenu, index) => {
+      // função que irá ler ao ler o click na imagem irá acionar a função activeTab() na section do js-content
+      itemMenu.addEventListener("click", () => this.activeTab(index));
+    });
+  }
+
+  init() {
+    if (this.tabMenu.length && this.tabContent.length) {
+      // Ativar primeiro item
+      this.activeTab(0);
+      this.addTabNavEvent();
+    }
   }
 }
